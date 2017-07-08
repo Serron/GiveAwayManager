@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Function {
     public ArrayList<String> entriesF = new ArrayList<>();
-
+    public int winner;
     public Function(){}
     
 /**
@@ -30,20 +30,24 @@ public class Function {
     public void deleteName(String name){
         
     }
+    public void fillList(String path){
+        ManageFile manageFile = new ManageFile(new File(path));
+        entriesF = manageFile.getContent();
+    }
     /**public String getName(){
         FXMLGiveAwayManagerController.tfClearList.getText();
      return
      * @param name}*/
-    public void checkName(String name, String path){
-        ManageFile manageFile = new ManageFile(new File(path));
-        entriesF = manageFile.getContent();
-        for(int i = 0; i<= entriesF.size()-1 ; i++){
-            if(name.equals(entriesF.get(i))){
-                entriesF.remove(i);
-                System.out.println("Eintrag gelöscht");
-            }else
-                System.out.println("Eintrag stimmt nicht überein");
+    public void checkName(String name){
+        for (int i = 0; i < 10; i++) {
+            for(int u = 0; u<= entriesF.size()-1 ; u++){
+                if(name.equals(entriesF.get(u))){
+                    entriesF.remove(u);
+                    //System.out.println("Eintrag gelöscht"+u);
+            }
         }
+        }
+
         
     }
     public void getSize(ArrayList entries, String path){
@@ -52,5 +56,13 @@ public class Function {
         for(int i=0; i<= entries.size()-1;i++){
             System.out.println(i);
         }
+    }
+    public void prepareList(ArrayList list){
+        list.remove(0);
+        
+    }
+    public int getWinnerEntry(int a){
+        winner = (int)(Math.random()*a)+1;
+        return winner;
     }
 }

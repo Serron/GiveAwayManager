@@ -25,6 +25,8 @@ import javax.swing.JFileChooser;
 public class FXMLGiveAwayManagerController implements Initializable {
     public ArrayList<String> entries = new ArrayList<>();
     public String path;
+    public String fileName;
+    public String clearName;
     Function fu = new Function();
     
     @FXML
@@ -38,40 +40,48 @@ public class FXMLGiveAwayManagerController implements Initializable {
     @FXML
     public TextField tfClearList;
     @FXML
-    public String clearName;
-    
-    
+    public Label lbNameDeleted;
     @FXML
-    public void handleFileChooseButtonAction(ActionEvent event){
+    public Label lbListImport;
+    @FXML
+    public Label lbWinner;
+    /**
+     * select a list with entryies.
+     * @param selectList 
+     */
+    @FXML
+    public void handleFileChooseButtonAction(ActionEvent selectList){
         final JFileChooser fc = new JFileChooser();
         int value = fc.showOpenDialog(null);
         
         if(value == JFileChooser.APPROVE_OPTION){
             path = fc.getSelectedFile().getPath();
+            fileName = fc.getSelectedFile().getName();
         }
+        fu.fillList(path);
+        lbListImport.setText(fileName+" was imported \r"
+                + "number of entries: "+fu.entriesF.size());
         System.out.println(path);
-        tfClearList.clear();
+        
+        
     }
     @FXML 
     public void handleClearListButtonAction(ActionEvent event){
         System.out.println(tfClearList.getText());
-        fu.checkName(tfClearList.getText(), path);
+        fu.checkName(tfClearList.getText());
+        lbNameDeleted.setText("entry with the name: \r"+tfClearList.getText()+" was deleted \r"
+                + "new number of entries :"+fu.entriesF.size());
+        tfClearList.clear();
         int u =0;
         for (int i = 0; i < fu.entriesF.size(); i++) {
             System.out.println(""+fu.entriesF.get(i));
+            u++;
         }
-        System.out.println("New list size"+u);
     }
     @FXML
     public void handleCloseButtonAction(ActionEvent event) {
     ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -83,5 +93,11 @@ public class FXMLGiveAwayManagerController implements Initializable {
     @FXML
     public void handleTestButtonAction(ActionEvent test){
         fu.getSize(entries, path);
+    }
+    @FXML
+    public void handlePickWinnerButtonAction(ActionEvent pickWinner){
+        fu.prepareList(fu.entriesF);
+        
+        lbWinner.setText(fu.entriesF.get(fu.getWinnerEntry(fu.entriesF.size())));
     }
 }
