@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -22,9 +23,10 @@ public class GiveAwayManager extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLGiveAwayManager.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
+        
     }
 
     /**
@@ -33,5 +35,6 @@ public class GiveAwayManager extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
     
 }
