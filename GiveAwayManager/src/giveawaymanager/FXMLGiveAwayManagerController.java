@@ -42,7 +42,12 @@ public class FXMLGiveAwayManagerController implements Initializable {
     /**
      * Textfields.
      */
+    @FXML
     public TextField tfClearList;
+    @FXML
+    public TextField tfAddEntrieCount;
+    @FXML
+    public TextField tfAddEntriesUsername;
     /**
      * Label.
      */
@@ -54,6 +59,10 @@ public class FXMLGiveAwayManagerController implements Initializable {
     public Label lbWinner;
     @FXML
     private Label label;
+    @FXML
+    public Label lbAddEntrieCount;
+    @FXML
+    public Label lbAddEntriesUsername;
     /**
      * select a list with entryies.
      * @param selectList 
@@ -106,5 +115,12 @@ public class FXMLGiveAwayManagerController implements Initializable {
         fu.prepareList(fu.entriesF);
         
         lbWinner.setText(fu.entriesF.get(fu.getWinnerEntry(fu.entriesF.size())));
+    }
+    @FXML
+    public void handleAddEntriesButtonAction(ActionEvent addEntries){
+        fu.addEntries(fu.entriesF,tfAddEntriesUsername.getText(), Integer.valueOf(tfAddEntrieCount.getText()));
+             for (int i = 0; i < fu.entriesF.size(); i++) {
+            System.out.println(""+fu.entriesF.get(i)); 
+        }
     }
 }

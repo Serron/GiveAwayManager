@@ -67,10 +67,9 @@ public class Function {
         return winner;
     }
     public void addEntries(ArrayList list, String username, int entries){
-        entries= 20;
-        rnd = (int)(Math.random() * list.size());
         for (int i = 0; i < entries; i++) {
-            list.add(i, username);
+            rnd = (int)(Math.random() * list.size());
+            list.add(rnd, username);
         }
     }
 
