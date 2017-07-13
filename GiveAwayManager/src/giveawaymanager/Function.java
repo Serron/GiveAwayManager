@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class Function {
     public ArrayList<String> entriesF = new ArrayList<>();
     public int winner;
+    public int rnd;
     public Function(){}
     
 /**
@@ -65,4 +66,12 @@ public class Function {
         winner = (int)(Math.random()*a)+1;
         return winner;
     }
+    public void addEntries(ArrayList list, String username, int entries){
+        entries= 20;
+        rnd = (int)(Math.random() * list.size());
+        for (int i = 0; i < entries; i++) {
+            list.add(i, username);
+        }
+    }
+
 }

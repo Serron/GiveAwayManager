@@ -28,23 +28,32 @@ public class FXMLGiveAwayManagerController implements Initializable {
     public String fileName;
     public String clearName;
     Function fu = new Function();
-    
+    /**
+     * Buttons.
+     */
     @FXML
-    private Label label;
+    public Button btnPickWinner;
     @FXML
-    private Button btnPickWinner;
-    @FXML
-    private Button btnImportList;
+    public Button btnImportList;
     @FXML
     public Button closeButton;
     @FXML
+    public Button btnAddEntries;
+    /**
+     * Textfields.
+     */
     public TextField tfClearList;
+    /**
+     * Label.
+     */
     @FXML
     public Label lbNameDeleted;
     @FXML
     public Label lbListImport;
     @FXML
     public Label lbWinner;
+    @FXML
+    private Label label;
     /**
      * select a list with entryies.
      * @param selectList 
@@ -61,9 +70,7 @@ public class FXMLGiveAwayManagerController implements Initializable {
         fu.fillList(path);
         lbListImport.setText(fileName+" was imported \r"
                 + "number of entries: "+fu.entriesF.size());
-        System.out.println(path);
-        
-        
+        System.out.println(path); 
     }
     @FXML 
     public void handleClearListButtonAction(ActionEvent event){
