@@ -7,13 +7,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="MainWindow" prefHeight="370.0" prefWidth="452.0" style="-: ;" styleClass="mainWindow" stylesheets="@cssGAM.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="giveawaymanager.FXMLGiveAwayManagerController">
+<AnchorPane id="MainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="451.0" style="-: ;" styleClass="mainWindow" stylesheets="@cssGAM.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="giveawaymanager.FXMLGiveAwayManagerController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#da1fff52" height="322.0" layoutY="38.0" stroke="TRANSPARENT" strokeType="INSIDE" width="293.0" />
         <Button id="btnReadList" fx:id="btnImportList" layoutX="305.0" layoutY="40.0" onAction="#handleFileChooseButtonAction" prefHeight="31.0" prefWidth="132.0" stylesheets="@cssGAM.css" text="import list" textOverrun="CLIP" />
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button id="closeButton" layoutX="384.0" layoutY="-2.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" prefHeight="33.0" prefWidth="57.0" styleClass="titleButtons" stylesheets="@cssGAM.css" text="X" />
-      <Button id="minimizeButton" layoutX="327.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="57.0" styleClass="titleButtons" stylesheets="@cssGAM.css" text="-" />
       <Button id="btnPickWinner" fx:id="button1" layoutX="306.0" layoutY="326.0" onAction="#handlePickWinnerButtonAction" prefHeight="31.0" prefWidth="132.0" stylesheets="@cssGAM.css" text="pick winner" textOverrun="CLIP" />
       <TextField fx:id="tfClearList" layoutX="12.0" layoutY="115.0" prefHeight="31.0" prefWidth="268.0" promptText="enter username" />
       <Label layoutX="12.0" layoutY="94.0" prefHeight="21.0" prefWidth="257.0" text="enter a name to clear the list" textFill="WHITE" />
